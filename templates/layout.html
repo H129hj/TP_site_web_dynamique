@@ -1,0 +1,30 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}} - StreetShop</title>
+  <link rel="stylesheet" href="/static/assets/css/style.css?v=1">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-left">
+        <a href="/">Home</a>
+        <a href="/ajouter">Add</a>
+      </div>
+      <img src="/static/assets/img/logo/logo.png" alt="StreetShop" class="logo">
+    </nav>
+  </header>
+
+  <main>
+    {{template "content" .}}
+  </main>
+
+  <footer>
+    <p>© 2025 StreetShop - Tous droits réservés</p>
+  </footer>
+</body>
+</html>
+{{end}}

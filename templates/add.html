@@ -1,0 +1,66 @@
+{{define "add"}}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreetShop - Ajouter un produit</title>
+  <link rel="stylesheet" href="/static/assets/css/style.css?v=1">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-left">
+        <a href="/">Home</a>
+        <a href="/ajouter">Add</a>
+      </div>
+      <img src="/static/assets/img/logo/logo.png" alt="StreetShop" class="logo">
+    </nav>
+  </header>
+
+  <main>
+    <div class="add-page">
+      <div class="add-form">
+        <h1 class="form-title">Ajouter un nouveau produit</h1>
+        
+        <form action="/ajouterForm" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="nom">Nom du produit :</label>
+            <input type="text" id="nom" name="nom" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="prix">Prix (€) :</label>
+            <input type="number" id="prix" name="prix" step="0.01" min="0" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="description">Description :</label>
+            <textarea id="description" name="description" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="image">Image du produit :</label>
+            <input type="file" id="image" name="image" accept="image/*">
+          </div>
+          
+          <div class="checkbox-group">
+            <input type="checkbox" id="reduction" name="reduction">
+            <label for="reduction">Produit en réduction</label>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">Ajouter le produit</button>
+            <a href="/" class="btn-cancel">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 StreetShop - Tous droits réservés</p>
+  </footer>
+</body>
+</html>
+{{end}}

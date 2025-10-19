@@ -1,0 +1,51 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreetShop - Accueil</title>
+  <link rel="stylesheet" href="/static/assets/css/style.css?v=1">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-left">
+        <a href="/">Home</a>
+        <a href="/ajouter">Add</a>
+      </div>
+      <img src="/static/assets/img/logo/logo.png" alt="StreetShop" class="logo">
+    </nav>
+  </header>
+
+  <main>
+    <div class="titre-section">
+      <h1 class="les">LES</h1>
+      <h1 class="produits-titre">PRODUITS</h1>
+    </div>
+    
+    <div class="produits-grid">
+      {{range .}}
+      <div class="produit-card">
+        <div class="produit-image">
+          <img src="{{.Image}}" alt="{{.Nom}}" loading="lazy">
+        </div>
+        <div class="produit-info">
+          <h3 class="produit-nom">{{.Nom}}</h3>
+          <p class="produit-prix">{{.Prix}} €</p>
+          {{if .Reduction}}<p class="produit-promo">🔥 En réduction</p>{{end}}
+        </div>
+        <div class="produit-actions">
+          <a href="/produit?id={{.ID}}" class="btn-consulter">Consulter</a>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 StreetShop - Tous droits réservés</p>
+  </footer>
+</body>
+</html>
+{{end}}

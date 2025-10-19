@@ -1,0 +1,54 @@
+{{define "details"}}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreetShop - {{.Nom}}</title>
+  <link rel="stylesheet" href="/static/assets/css/style.css?v=1">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-left">
+        <a href="/">Home</a>
+        <a href="/ajouter">Add</a>
+      </div>
+      <img src="/static/assets/img/logo/logo.png" alt="StreetShop" class="logo">
+    </nav>
+  </header>
+
+  <main>
+    <div class="details-page">
+      <div class="produit-detail-card">
+        <div class="produit-detail-content">
+          <div class="produit-detail-image">
+            <img src="{{.Image}}" alt="{{.Nom}}">
+          </div>
+          <div class="produit-detail-info">
+            <div>
+              <h2 class="produit-detail-nom">{{.Nom}}</h2>
+              <p class="produit-detail-tailles">Tailles disponibles : S | XS | M</p>
+              <p class="produit-detail-description">{{.Description}}</p>
+              <p class="produit-detail-prix">{{.Prix}}€</p>
+              {{if .Reduction}}<p class="produit-detail-promo">🔥 En réduction !</p>{{end}}
+            </div>
+            <div class="produit-detail-actions">
+              <a href="/" class="btn-ajouter">Ajouter au panier</a>
+              <form method="POST" action="/supprimer" style="display: inline; margin-left: 15px;">
+                <input type="hidden" name="id" value="{{.ID}}">
+                <button type="submit" class="btn-supprimer-detail" onclick="return confirm('Êtes-vous sûr de vouloir supprimer {{.Nom}} ?')">Supprimer le produit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 StreetShop - Tous droits réservés</p>
+  </footer>
+</body>
+</html>
+{{end}}
